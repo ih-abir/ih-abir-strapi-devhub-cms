@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_kindness_impacts",
+  "info": {
+    "displayName": "Impacts",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    },
+    "Value_unit": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

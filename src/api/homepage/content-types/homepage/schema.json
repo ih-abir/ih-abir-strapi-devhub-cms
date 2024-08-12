@@ -15,6 +15,9 @@
     "Title": {
       "type": "string"
     },
+    "Intro_text": {
+      "type": "richtext"
+    },
     "Intro_blob": {
       "type": "media",
       "multiple": false,
@@ -23,15 +26,123 @@
         "images"
       ]
     },
-    "Description": {
-      "type": "richtext"
-    },
-    "blob": {
+    "Intro_blob_sm": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
+      ]
+    },
+    "Block_visibility": {
+      "type": "boolean",
+      "required": false
+    },
+    "Block_title": {
+      "type": "string"
+    },
+    "Block_button_text": {
+      "type": "string"
+    },
+    "Block_button_link": {
+      "type": "string"
+    },
+    "Block2_visibility": {
+      "type": "boolean"
+    },
+    "Block2_title": {
+      "type": "string"
+    },
+    "Block3_visibility": {
+      "type": "boolean"
+    },
+    "Block3_title": {
+      "type": "string"
+    },
+    "Block4_visibility": {
+      "type": "boolean"
+    },
+    "Block4_title": {
+      "type": "string"
+    },
+    "Block4_text": {
+      "type": "richtext"
+    },
+    "Block4_button_text": {
+      "type": "string"
+    },
+    "Block4_button_link": {
+      "type": "string"
+    },
+    "Block4_blob": {
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Block5_visibility": {
+      "type": "boolean"
+    },
+    "Block5_title": {
+      "type": "string"
+    },
+    "Block5_text": {
+      "type": "richtext"
+    },
+    "Block6_visibility": {
+      "type": "boolean"
+    },
+    "Block6_title": {
+      "type": "string"
+    },
+    "Block6_button_text": {
+      "type": "string"
+    },
+    "Block6_button_link": {
+      "type": "string"
+    },
+    "Block7_visibility": {
+      "type": "boolean"
+    },
+    "Block7_title": {
+      "type": "string"
+    },
+    "Block7_text": {
+      "type": "richtext"
+    },
+    "Block7_button_text": {
+      "type": "string"
+    },
+    "Block7_button_link": {
+      "type": "string"
+    },
+    "Block7_blob": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Block8_visibility": {
+      "type": "boolean"
+    },
+    "Block8_title": {
+      "type": "string"
+    },
+    "Impacts": {
+      "displayName": "Impacts",
+      "type": "component",
+      "repeatable": true,
+      "component": "kindness.impacts"
+    },
+    "Meta": {
+      "displayName": "Meta",
+      "type": "component",
+      "repeatable": false,
+      "component": "search-engine.meta"
     }
   }
 }
