@@ -24,7 +24,14 @@
       ]
     },
     "Description": {
-      "type": "blocks"
+      "type": "richtext"
+    },
+    "blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

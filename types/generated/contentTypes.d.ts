@@ -376,7 +376,8 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   attributes: {
     Title: Attribute.String;
     Intro_blob: Attribute.Media<'images'>;
-    Description: Attribute.Blocks;
+    Description: Attribute.RichText;
+    blob: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
