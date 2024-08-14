@@ -142,7 +142,8 @@
       "displayName": "Meta",
       "type": "component",
       "repeatable": false,
-      "component": "search-engine.meta"
+      "component": "search-engine.meta",
+      "required": true
     }
   }
 }

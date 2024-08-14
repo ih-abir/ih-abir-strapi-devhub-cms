@@ -408,7 +408,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     Block8_visibility: Attribute.Boolean;
     Block8_title: Attribute.String;
     Impacts: Attribute.Component<'kindness.impacts', true>;
-    Meta: Attribute.Component<'search-engine.meta'>;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
