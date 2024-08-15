@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accommodations",
+  "info": {
+    "singularName": "accommodation",
+    "pluralName": "accommodations",
+    "displayName": "Accommodation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Intro_blob": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Block_blob": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "google_place_id": {
+      "type": "string"
+    },
+    "Book_link": {
+      "type": "string"
+    },
+    "Meta": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "search-engine.meta"
+    }
+  }
+}

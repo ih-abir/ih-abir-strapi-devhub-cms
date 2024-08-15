@@ -362,90 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomepageHomepage extends Schema.SingleType {
-  collectionName: 'homepages';
-  info: {
-    singularName: 'homepage';
-    pluralName: 'homepages';
-    displayName: 'Homepage';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String;
-    Title_tag: Attribute.String;
-    Intro_text: Attribute.RichText;
-    Intro_button_text: Attribute.String;
-    Intro_button_link: Attribute.String;
-    Intro_blob: Attribute.Media<'images'>;
-    Intro_blob_place_text: Attribute.String;
-    Todo_title: Attribute.String;
-    Todo_intro_txt: Attribute.RichText;
-    Todo_intro_button_text: Attribute.String;
-    Todo_intro_button_link: Attribute.String;
-    Todo_button_text_1: Attribute.String;
-    Todo_button_text_2: Attribute.String;
-    Todo_button_text_3: Attribute.String;
-    Accomodation_title: Attribute.String;
-    Accomodation_button_text: Attribute.String;
-    Accomodation_button_link: Attribute.String;
-    Boat_title: Attribute.String;
-    Boat_intro_text: Attribute.RichText;
-    Boat_intro_button_text: Attribute.String;
-    Boat_intro_button_link: Attribute.String;
-    Instagram_title: Attribute.String;
-    Instagram_button_text: Attribute.String;
-    Geo_latitude: Attribute.String;
-    Geo_longitude: Attribute.String;
-    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::homepage.homepage',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::homepage.homepage',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTodoTodo extends Schema.CollectionType {
-  collectionName: 'todos';
-  info: {
-    singularName: 'todo';
-    pluralName: 'todos';
-    displayName: 'Todo';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    Intro_blob: Attribute.Media<'images'>;
-    Block_blob: Attribute.Media<'images'>;
-    google_place_id: Attribute.String;
-    Meta: Attribute.Component<'search-engine.meta'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -872,6 +788,126 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAccommodationAccommodation extends Schema.CollectionType {
+  collectionName: 'accommodations';
+  info: {
+    singularName: 'accommodation';
+    pluralName: 'accommodations';
+    displayName: 'Accommodation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    Intro_blob: Attribute.Media<'images'>;
+    Block_blob: Attribute.Media<'images'>;
+    google_place_id: Attribute.String;
+    Book_link: Attribute.String;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::accommodation.accommodation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::accommodation.accommodation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomepageHomepage extends Schema.SingleType {
+  collectionName: 'homepages';
+  info: {
+    singularName: 'homepage';
+    pluralName: 'homepages';
+    displayName: 'Homepage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Title_tag: Attribute.String;
+    Intro_text: Attribute.RichText;
+    Intro_button_text: Attribute.String;
+    Intro_button_link: Attribute.String;
+    Intro_blob: Attribute.Media<'images'>;
+    Intro_blob_place_text: Attribute.String;
+    Todo_title: Attribute.String;
+    Todo_intro_txt: Attribute.RichText;
+    Todo_intro_button_text: Attribute.String;
+    Todo_intro_button_link: Attribute.String;
+    Todo_button_text_1: Attribute.String;
+    Todo_button_text_2: Attribute.String;
+    Todo_button_text_3: Attribute.String;
+    Accomodation_title: Attribute.String;
+    Accomodation_button_text: Attribute.String;
+    Accomodation_button_link: Attribute.String;
+    Boat_title: Attribute.String;
+    Boat_intro_text: Attribute.RichText;
+    Boat_intro_button_text: Attribute.String;
+    Boat_intro_button_link: Attribute.String;
+    Instagram_title: Attribute.String;
+    Instagram_button_text: Attribute.String;
+    Geo_latitude: Attribute.String;
+    Geo_longitude: Attribute.String;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTodoTodo extends Schema.CollectionType {
+  collectionName: 'todos';
+  info: {
+    singularName: 'todo';
+    pluralName: 'todos';
+    displayName: 'Todo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    Intro_blob: Attribute.Media<'images'>;
+    Block_blob: Attribute.Media<'images'>;
+    google_place_id: Attribute.String;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -882,8 +918,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::homepage.homepage': ApiHomepageHomepage;
-      'api::todo.todo': ApiTodoTodo;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -892,6 +926,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::accommodation.accommodation': ApiAccommodationAccommodation;
+      'api::homepage.homepage': ApiHomepageHomepage;
+      'api::todo.todo': ApiTodoTodo;
     }
   }
 }
