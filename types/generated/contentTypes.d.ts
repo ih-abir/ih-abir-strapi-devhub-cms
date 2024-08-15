@@ -375,39 +375,30 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
   attributes: {
     Title: Attribute.String;
+    Title_tag: Attribute.String;
     Intro_text: Attribute.RichText;
+    Intro_button_text: Attribute.String;
+    Intro_button_link: Attribute.String;
     Intro_blob: Attribute.Media<'images'>;
-    Intro_blob_sm: Attribute.Media<'images'>;
-    Block_visibility: Attribute.Boolean;
-    Block_title: Attribute.String;
-    Block_button_text: Attribute.String;
-    Block_button_link: Attribute.String;
-    Block2_visibility: Attribute.Boolean;
-    Block2_title: Attribute.String;
-    Block3_visibility: Attribute.Boolean;
-    Block3_title: Attribute.String;
-    Block4_visibility: Attribute.Boolean;
-    Block4_title: Attribute.String;
-    Block4_text: Attribute.RichText;
-    Block4_button_text: Attribute.String;
-    Block4_button_link: Attribute.String;
-    Block4_blob: Attribute.Media<'images'>;
-    Block5_visibility: Attribute.Boolean;
-    Block5_title: Attribute.String;
-    Block5_text: Attribute.RichText;
-    Block6_visibility: Attribute.Boolean;
-    Block6_title: Attribute.String;
-    Block6_button_text: Attribute.String;
-    Block6_button_link: Attribute.String;
-    Block7_visibility: Attribute.Boolean;
-    Block7_title: Attribute.String;
-    Block7_text: Attribute.RichText;
-    Block7_button_text: Attribute.String;
-    Block7_button_link: Attribute.String;
-    Block7_blob: Attribute.Media<'images', true>;
-    Block8_visibility: Attribute.Boolean;
-    Block8_title: Attribute.String;
-    Impacts: Attribute.Component<'kindness.impacts', true>;
+    Intro_blob_place_text: Attribute.String;
+    Todo_title: Attribute.String;
+    Todo_intro_txt: Attribute.RichText;
+    Todo_intro_button_text: Attribute.String;
+    Todo_intro_button_link: Attribute.String;
+    Todo_button_text_1: Attribute.String;
+    Todo_button_text_2: Attribute.String;
+    Todo_button_text_3: Attribute.String;
+    Accomodation_title: Attribute.String;
+    Accomodation_button_text: Attribute.String;
+    Accomodation_button_link: Attribute.String;
+    Boat_title: Attribute.String;
+    Boat_intro_text: Attribute.RichText;
+    Boat_intro_button_text: Attribute.String;
+    Boat_intro_button_link: Attribute.String;
+    Instagram_title: Attribute.String;
+    Instagram_button_text: Attribute.String;
+    Geo_latitude: Attribute.String;
+    Geo_longitude: Attribute.String;
     Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -423,6 +414,34 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTodoTodo extends Schema.CollectionType {
+  collectionName: 'todos';
+  info: {
+    singularName: 'todo';
+    pluralName: 'todos';
+    displayName: 'Todo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    Intro_blob: Attribute.Media<'images'>;
+    Block_blob: Attribute.Media<'images'>;
+    google_place_id: Attribute.String;
+    Meta: Attribute.Component<'search-engine.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -864,6 +883,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::todo.todo': ApiTodoTodo;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

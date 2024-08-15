@@ -15,8 +15,17 @@
     "Title": {
       "type": "string"
     },
+    "Title_tag": {
+      "type": "string"
+    },
     "Intro_text": {
       "type": "richtext"
+    },
+    "Intro_button_text": {
+      "type": "string"
+    },
+    "Intro_button_link": {
+      "type": "string"
     },
     "Intro_blob": {
       "type": "media",
@@ -26,117 +35,62 @@
         "images"
       ]
     },
-    "Intro_blob_sm": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "Block_visibility": {
-      "type": "boolean",
-      "required": false
-    },
-    "Block_title": {
+    "Intro_blob_place_text": {
       "type": "string"
     },
-    "Block_button_text": {
+    "Todo_title": {
       "type": "string"
     },
-    "Block_button_link": {
-      "type": "string"
-    },
-    "Block2_visibility": {
-      "type": "boolean"
-    },
-    "Block2_title": {
-      "type": "string"
-    },
-    "Block3_visibility": {
-      "type": "boolean"
-    },
-    "Block3_title": {
-      "type": "string"
-    },
-    "Block4_visibility": {
-      "type": "boolean"
-    },
-    "Block4_title": {
-      "type": "string"
-    },
-    "Block4_text": {
+    "Todo_intro_txt": {
       "type": "richtext"
     },
-    "Block4_button_text": {
+    "Todo_intro_button_text": {
       "type": "string"
     },
-    "Block4_button_link": {
+    "Todo_intro_button_link": {
       "type": "string"
     },
-    "Block4_blob": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "Block5_visibility": {
-      "type": "boolean"
-    },
-    "Block5_title": {
+    "Todo_button_text_1": {
       "type": "string"
     },
-    "Block5_text": {
+    "Todo_button_text_2": {
+      "type": "string"
+    },
+    "Todo_button_text_3": {
+      "type": "string"
+    },
+    "Accomodation_title": {
+      "type": "string"
+    },
+    "Accomodation_button_text": {
+      "type": "string"
+    },
+    "Accomodation_button_link": {
+      "type": "string"
+    },
+    "Boat_title": {
+      "type": "string"
+    },
+    "Boat_intro_text": {
       "type": "richtext"
     },
-    "Block6_visibility": {
-      "type": "boolean"
-    },
-    "Block6_title": {
+    "Boat_intro_button_text": {
       "type": "string"
     },
-    "Block6_button_text": {
+    "Boat_intro_button_link": {
       "type": "string"
     },
-    "Block6_button_link": {
+    "Instagram_title": {
       "type": "string"
     },
-    "Block7_visibility": {
-      "type": "boolean"
-    },
-    "Block7_title": {
+    "Instagram_button_text": {
       "type": "string"
     },
-    "Block7_text": {
-      "type": "richtext"
-    },
-    "Block7_button_text": {
+    "Geo_latitude": {
       "type": "string"
     },
-    "Block7_button_link": {
+    "Geo_longitude": {
       "type": "string"
-    },
-    "Block7_blob": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "Block8_visibility": {
-      "type": "boolean"
-    },
-    "Block8_title": {
-      "type": "string"
-    },
-    "Impacts": {
-      "displayName": "Impacts",
-      "type": "component",
-      "repeatable": true,
-      "component": "kindness.impacts"
     },
     "Meta": {
       "displayName": "Meta",
