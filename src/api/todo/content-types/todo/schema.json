@@ -40,6 +40,7 @@
     "Meta": {
       "type": "component",
       "repeatable": false,
+      "required": true,
       "component": "search-engine.meta"
     }
   }
