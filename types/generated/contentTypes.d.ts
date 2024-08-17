@@ -824,6 +824,242 @@ export interface ApiAccommodationAccommodation extends Schema.CollectionType {
   };
 }
 
+export interface ApiBasicPageBasicPage extends Schema.CollectionType {
+  collectionName: 'basic_pages';
+  info: {
+    singularName: 'basic-page';
+    pluralName: 'basic-pages';
+    displayName: 'Basic page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Intro_text: Attribute.RichText & Attribute.Required;
+    Intro_blob: Attribute.Media<'images'>;
+    Block_blob: Attribute.Media<'images'>;
+    Images: Attribute.Media<'images', true>;
+    Block_title: Attribute.String;
+    Block_text: Attribute.RichText;
+    Meta: Attribute.Component<'search-engine.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::basic-page.basic-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::basic-page.basic-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBoatBoat extends Schema.CollectionType {
+  collectionName: 'boats';
+  info: {
+    singularName: 'boat';
+    pluralName: 'boats';
+    displayName: 'Boat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Logo: Attribute.Media<'images'>;
+    Description: Attribute.RichText;
+    Boat_image: Attribute.Media<'images'> & Attribute.Required;
+    Homepage_link: Attribute.String;
+    Book_link: Attribute.String;
+    Tripadvisor_link: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::boat.boat', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::boat.boat', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGenericElementGenericElement extends Schema.SingleType {
+  collectionName: 'generic_elements';
+  info: {
+    singularName: 'generic-element';
+    pluralName: 'generic-elements';
+    displayName: 'Generic Element';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    OpenGraph_default: Attribute.Media<'images'> & Attribute.Required;
+    Footer_image: Attribute.Media<'images'> & Attribute.Required;
+    Footer_image_sm: Attribute.Media<'images'> & Attribute.Required;
+    Footer_copyright: Attribute.Text & Attribute.Required;
+    Instagram_accountname: Attribute.String;
+    Instagram_link: Attribute.String;
+    Nav_menu: Attribute.Component<'menu.navigation', true> & Attribute.Required;
+    Footer_menu: Attribute.Component<'menu.navigation', true> &
+      Attribute.Required;
+    About_intro_title: Attribute.String & Attribute.Required;
+    About_intro_text: Attribute.RichText & Attribute.Required;
+    About_intro_blob: Attribute.Media<'images'> & Attribute.Required;
+    About_intro_button_text: Attribute.String;
+    About_intro_button_link: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::generic-element.generic-element',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::generic-element.generic-element',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGoogleMapsDataGoogleMapsData extends Schema.SingleType {
+  collectionName: 'google_maps_datas';
+  info: {
+    singularName: 'google-maps-data';
+    pluralName: 'google-maps-datas';
+    displayName: 'Google maps data';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    data: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::google-maps-data.google-maps-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::google-maps-data.google-maps-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeAccommodationHomeAccommodation
+  extends Schema.SingleType {
+  collectionName: 'home_accommodations';
+  info: {
+    singularName: 'home-accommodation';
+    pluralName: 'home-accommodations';
+    displayName: 'Home accommodation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Intro_text: Attribute.RichText & Attribute.Required;
+    Intro_blob: Attribute.Media<'images'> & Attribute.Required;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-accommodation.home-accommodation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-accommodation.home-accommodation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeBoatHomeBoat extends Schema.SingleType {
+  collectionName: 'home_boats';
+  info: {
+    singularName: 'home-boat';
+    pluralName: 'home-boats';
+    displayName: 'Home boat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Intro_text: Attribute.RichText & Attribute.Required;
+    Intro_blob: Attribute.Media<'images'> & Attribute.Required;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-boat.home-boat',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-boat.home-boat',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeTodoHomeTodo extends Schema.SingleType {
+  collectionName: 'home_todos';
+  info: {
+    singularName: 'home-todo';
+    pluralName: 'home-todos';
+    displayName: 'Home todo';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Intro_text: Attribute.RichText & Attribute.Required;
+    Intro_blob: Attribute.Media<'images'> & Attribute.Required;
+    Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-todo.home-todo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-todo.home-todo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Schema.SingleType {
   collectionName: 'homepages';
   info: {
@@ -880,6 +1116,36 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiInstagramImageInstagramImage extends Schema.CollectionType {
+  collectionName: 'instagram_images';
+  info: {
+    singularName: 'instagram-image';
+    pluralName: 'instagram-images';
+    displayName: 'Instagram image';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Image_caption: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::instagram-image.instagram-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::instagram-image.instagram-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTodoTodo extends Schema.CollectionType {
   collectionName: 'todos';
   info: {
@@ -927,7 +1193,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::accommodation.accommodation': ApiAccommodationAccommodation;
+      'api::basic-page.basic-page': ApiBasicPageBasicPage;
+      'api::boat.boat': ApiBoatBoat;
+      'api::generic-element.generic-element': ApiGenericElementGenericElement;
+      'api::google-maps-data.google-maps-data': ApiGoogleMapsDataGoogleMapsData;
+      'api::home-accommodation.home-accommodation': ApiHomeAccommodationHomeAccommodation;
+      'api::home-boat.home-boat': ApiHomeBoatHomeBoat;
+      'api::home-todo.home-todo': ApiHomeTodoHomeTodo;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::instagram-image.instagram-image': ApiInstagramImageInstagramImage;
       'api::todo.todo': ApiTodoTodo;
     }
   }

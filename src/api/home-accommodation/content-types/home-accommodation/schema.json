@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_accommodations",
+  "info": {
+    "singularName": "home-accommodation",
+    "pluralName": "home-accommodations",
+    "displayName": "Home accommodation"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Intro_text": {
+      "type": "richtext",
+      "required": true
+    },
+    "Intro_blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "search-engine.meta",
+      "required": true
+    }
+  }
+}

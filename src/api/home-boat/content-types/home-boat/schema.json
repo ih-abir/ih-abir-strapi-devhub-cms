@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_boats",
+  "info": {
+    "singularName": "home-boat",
+    "pluralName": "home-boats",
+    "displayName": "Home boat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Intro_text": {
+      "type": "richtext",
+      "required": true
+    },
+    "Intro_blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "search-engine.meta",
+      "required": true
+    }
+  }
+}

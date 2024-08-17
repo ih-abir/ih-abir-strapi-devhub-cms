@@ -1,0 +1,86 @@
+{
+  "kind": "singleType",
+  "collectionName": "generic_elements",
+  "info": {
+    "singularName": "generic-element",
+    "pluralName": "generic-elements",
+    "displayName": "Generic Element"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OpenGraph_default": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Footer_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Footer_image_sm": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Footer_copyright": {
+      "type": "text",
+      "required": true
+    },
+    "Instagram_accountname": {
+      "type": "string",
+      "required": false
+    },
+    "Instagram_link": {
+      "type": "string"
+    },
+    "Nav_menu": {
+      "displayName": "Navigation",
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.navigation",
+      "required": true
+    },
+    "Footer_menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.navigation",
+      "required": true
+    },
+    "About_intro_title": {
+      "type": "string",
+      "required": true
+    },
+    "About_intro_text": {
+      "type": "richtext",
+      "required": true
+    },
+    "About_intro_blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "About_intro_button_text": {
+      "type": "string",
+      "required": false
+    },
+    "About_intro_button_link": {
+      "type": "string"
+    }
+  }
+}

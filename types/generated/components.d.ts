@@ -16,6 +16,18 @@ export interface SearchEngineMeta extends Schema.Component {
   };
 }
 
+export interface MenuNavigation extends Schema.Component {
+  collectionName: 'components_menu_navigations';
+  info: {
+    displayName: 'Navigation';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Title_url: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface KindnessImpacts extends Schema.Component {
   collectionName: 'components_kindness_impacts';
   info: {
@@ -34,6 +46,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'search-engine.meta': SearchEngineMeta;
+      'menu.navigation': MenuNavigation;
       'kindness.impacts': KindnessImpacts;
     }
   }
