@@ -868,6 +868,7 @@ export interface ApiBoatBoat extends Schema.CollectionType {
     singularName: 'boat';
     pluralName: 'boats';
     displayName: 'Boat';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -880,6 +881,7 @@ export interface ApiBoatBoat extends Schema.CollectionType {
     Homepage_link: Attribute.String;
     Book_link: Attribute.String;
     Tripadvisor_link: Attribute.String;
+    Departure: Attribute.Component<'schedule.departure', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

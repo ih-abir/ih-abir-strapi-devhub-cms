@@ -16,6 +16,38 @@ export interface SearchEngineMeta extends Schema.Component {
   };
 }
 
+export interface ScheduleDeparture extends Schema.Component {
+  collectionName: 'components_schedule_departures';
+  info: {
+    displayName: 'Departure';
+    icon: 'layout';
+  };
+  attributes: {
+    Starting_point_name: Attribute.String & Attribute.Required;
+    Ending_point_name: Attribute.String & Attribute.Required;
+    Starting_point_google_place_id: Attribute.String & Attribute.Required;
+    Ending_point_google_place_id: Attribute.String & Attribute.Required;
+    IDR_price_one_way_adult: Attribute.BigInteger & Attribute.Required;
+    IDR_price_return_adult: Attribute.BigInteger & Attribute.Required;
+    IDR_price_one_way_child: Attribute.BigInteger;
+    IDR_price_return_child: Attribute.BigInteger;
+    Price_child_age_range: Attribute.String;
+    Time: Attribute.Component<'schedule.departure-time', true>;
+  };
+}
+
+export interface ScheduleDepartureTime extends Schema.Component {
+  collectionName: 'components_schedule_departure_times';
+  info: {
+    displayName: 'Departure-time';
+    icon: 'clock';
+  };
+  attributes: {
+    Departure_time: Attribute.Time;
+    Return_time: Attribute.Time;
+  };
+}
+
 export interface MenuNavigation extends Schema.Component {
   collectionName: 'components_menu_navigations';
   info: {
@@ -46,6 +78,8 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'search-engine.meta': SearchEngineMeta;
+      'schedule.departure': ScheduleDeparture;
+      'schedule.departure-time': ScheduleDepartureTime;
       'menu.navigation': MenuNavigation;
       'kindness.impacts': KindnessImpacts;
     }

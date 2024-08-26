@@ -4,7 +4,8 @@
   "info": {
     "singularName": "boat",
     "pluralName": "boats",
-    "displayName": "Boat"
+    "displayName": "Boat",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,22 +16,23 @@
       "type": "string"
     },
     "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Description": {
       "type": "richtext"
     },
     "Boat_image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Homepage_link": {
       "type": "string"
@@ -40,6 +42,12 @@
     },
     "Tripadvisor_link": {
       "type": "string"
+    },
+    "Departure": {
+      "displayName": "Departure",
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.departure"
     }
   }
 }
