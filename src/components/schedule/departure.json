@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_schedule_departures",
+  "info": {
+    "displayName": "Departure",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "Starting_point_name": {
+      "type": "string",
+      "required": true
+    },
+    "Ending_point_name": {
+      "type": "string",
+      "required": true
+    },
+    "Starting_point_google_place_id": {
+      "type": "string",
+      "required": true
+    },
+    "Ending_point_google_place_id": {
+      "type": "string",
+      "required": true
+    },
+    "IDR_price_one_way_adult": {
+      "required": true,
+      "type": "biginteger"
+    },
+    "IDR_price_return_adult": {
+      "type": "biginteger",
+      "required": true
+    },
+    "IDR_price_one_way_child": {
+      "type": "biginteger"
+    },
+    "IDR_price_return_child": {
+      "type": "biginteger"
+    },
+    "Price_child_age_range": {
+      "type": "string"
+    },
+    "Time": {
+      "displayName": "Departure-time",
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.departure-time"
+    }
+  }
+}

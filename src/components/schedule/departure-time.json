@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_schedule_departure_times",
+  "info": {
+    "displayName": "Departure-time",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "Departure_time": {
+      "type": "time"
+    },
+    "Return_time": {
+      "type": "time"
+    }
+  }
+}
