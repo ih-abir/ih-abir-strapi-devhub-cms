@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_schema_qas",
+  "info": {
+    "displayName": "QA",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string",
+      "required": true
+    },
+    "Answer": {
+      "type": "richtext",
+      "required": true
+    },
+    "Blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

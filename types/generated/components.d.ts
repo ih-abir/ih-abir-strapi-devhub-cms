@@ -16,6 +16,43 @@ export interface SearchEngineMeta extends Schema.Component {
   };
 }
 
+export interface SchemaType extends Schema.Component {
+  collectionName: 'components_schema_types';
+  info: {
+    displayName: 'Type';
+  };
+  attributes: {
+    LocalBusiness: Attribute.Boolean;
+    Landform: Attribute.Boolean;
+    Accommodation: Attribute.Boolean;
+    Restaurant: Attribute.Boolean;
+    TouristAttraction: Attribute.Boolean;
+  };
+}
+
+export interface SchemaQa extends Schema.Component {
+  collectionName: 'components_schema_qas';
+  info: {
+    displayName: 'QA';
+    description: '';
+  };
+  attributes: {
+    Question: Attribute.String & Attribute.Required;
+    Answer: Attribute.RichText & Attribute.Required;
+    Blob: Attribute.Media<'images'>;
+  };
+}
+
+export interface SchemaCuisine extends Schema.Component {
+  collectionName: 'components_schema_cuisines';
+  info: {
+    displayName: 'Cuisine';
+  };
+  attributes: {
+    Variant_name: Attribute.Enumeration<['Asian']>;
+  };
+}
+
 export interface ScheduleDeparture extends Schema.Component {
   collectionName: 'components_schedule_departures';
   info: {
@@ -78,6 +115,9 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'search-engine.meta': SearchEngineMeta;
+      'schema.type': SchemaType;
+      'schema.qa': SchemaQa;
+      'schema.cuisine': SchemaCuisine;
       'schedule.departure': ScheduleDeparture;
       'schedule.departure-time': ScheduleDepartureTime;
       'menu.navigation': MenuNavigation;

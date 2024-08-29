@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_schema_cuisines",
+  "info": {
+    "displayName": "Cuisine"
+  },
+  "options": {},
+  "attributes": {
+    "Variant_name": {
+      "type": "enumeration",
+      "enum": [
+        "Asian"
+      ]
+    }
+  }
+}
