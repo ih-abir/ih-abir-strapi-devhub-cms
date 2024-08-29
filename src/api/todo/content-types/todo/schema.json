@@ -42,6 +42,30 @@
       "repeatable": false,
       "required": true,
       "component": "search-engine.meta"
+    },
+    "Public_access": {
+      "type": "boolean"
+    },
+    "Free_accessible": {
+      "type": "boolean"
+    },
+    "Pets_allowed": {
+      "type": "boolean"
+    },
+    "Type": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schema.type"
+    },
+    "Cuisine": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schema.cuisine"
+    },
+    "QA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schema.qa"
     }
   }
 }

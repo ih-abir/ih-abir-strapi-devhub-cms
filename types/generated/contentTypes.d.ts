@@ -794,6 +794,7 @@ export interface ApiAccommodationAccommodation extends Schema.CollectionType {
     singularName: 'accommodation';
     pluralName: 'accommodations';
     displayName: 'Accommodation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -806,6 +807,10 @@ export interface ApiAccommodationAccommodation extends Schema.CollectionType {
     google_place_id: Attribute.String;
     Book_link: Attribute.String;
     Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    Pets_allowed: Attribute.Boolean;
+    Type: Attribute.Component<'schema.type'>;
+    Cuisine: Attribute.Component<'schema.cuisine', true>;
+    QA: Attribute.Component<'schema.qa', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1166,6 +1171,12 @@ export interface ApiTodoTodo extends Schema.CollectionType {
     Block_blob: Attribute.Media<'images'>;
     google_place_id: Attribute.String;
     Meta: Attribute.Component<'search-engine.meta'> & Attribute.Required;
+    Public_access: Attribute.Boolean;
+    Free_accessible: Attribute.Boolean;
+    Pets_allowed: Attribute.Boolean;
+    Type: Attribute.Component<'schema.type'>;
+    Cuisine: Attribute.Component<'schema.cuisine', true>;
+    QA: Attribute.Component<'schema.qa', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

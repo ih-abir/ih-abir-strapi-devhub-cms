@@ -4,7 +4,8 @@
   "info": {
     "singularName": "accommodation",
     "pluralName": "accommodations",
-    "displayName": "Accommodation"
+    "displayName": "Accommodation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -44,6 +45,24 @@
       "repeatable": false,
       "required": true,
       "component": "search-engine.meta"
+    },
+    "Pets_allowed": {
+      "type": "boolean"
+    },
+    "Type": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schema.type"
+    },
+    "Cuisine": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schema.cuisine"
+    },
+    "QA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schema.qa"
     }
   }
 }
