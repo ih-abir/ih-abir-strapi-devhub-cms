@@ -13,13 +13,23 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Title_tag": {
       "type": "string"
     },
     "Intro_text": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
+    },
+    "Intro_blob": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Intro_button_text": {
       "type": "string"
@@ -27,7 +37,56 @@
     "Intro_button_link": {
       "type": "string"
     },
-    "Intro_blob": {
+    "Block_title": {
+      "type": "string"
+    },
+    "Block_intro_text": {
+      "type": "richtext"
+    },
+    "Block_button_text": {
+      "type": "string"
+    },
+    "Block_button_link": {
+      "type": "string"
+    },
+    "Block_solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution"
+    },
+    "Block_solution1_button_text": {
+      "type": "string"
+    },
+    "Block_solution2_button_text": {
+      "type": "string"
+    },
+    "Block_solution3_button_text": {
+      "type": "string"
+    },
+    "Block2_title": {
+      "type": "string"
+    },
+    "Block2_intro_text": {
+      "type": "richtext"
+    },
+    "Block2_button_text": {
+      "type": "string"
+    },
+    "Block2_button_link": {
+      "type": "string"
+    },
+    "Block2_projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    },
+    "Block3_title": {
+      "type": "string"
+    },
+    "Block3_title_tag": {
+      "type": "string"
+    },
+    "Block3_blob": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -35,68 +94,27 @@
         "images"
       ]
     },
-    "Intro_blob_place_text": {
+    "Block4_title": {
       "type": "string"
     },
-    "Todo_title": {
-      "type": "string"
-    },
-    "Todo_intro_txt": {
+    "Block4_intro_text": {
       "type": "richtext"
     },
-    "Todo_intro_button_text": {
+    "Block4_button_text": {
       "type": "string"
     },
-    "Todo_intro_button_link": {
+    "Block4_button_link": {
       "type": "string"
     },
-    "Todo_button_text_1": {
-      "type": "string"
+    "Block4_team_members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-member.team-member"
     },
-    "Todo_button_text_2": {
-      "type": "string"
-    },
-    "Todo_button_text_3": {
-      "type": "string"
-    },
-    "Accomodation_title": {
-      "type": "string"
-    },
-    "Accomodation_button_text": {
-      "type": "string"
-    },
-    "Accomodation_button_link": {
-      "type": "string"
-    },
-    "Boat_title": {
-      "type": "string"
-    },
-    "Boat_intro_text": {
-      "type": "richtext"
-    },
-    "Boat_intro_button_text": {
-      "type": "string"
-    },
-    "Boat_intro_button_link": {
-      "type": "string"
-    },
-    "Instagram_title": {
-      "type": "string"
-    },
-    "Instagram_button_text": {
-      "type": "string"
-    },
-    "Geo_latitude": {
-      "type": "string"
-    },
-    "Geo_longitude": {
-      "type": "string"
-    },
-    "Meta": {
-      "displayName": "Meta",
+    "Seo": {
       "type": "component",
       "repeatable": false,
-      "component": "search-engine.meta",
+      "component": "shared.seo",
       "required": true
     }
   }

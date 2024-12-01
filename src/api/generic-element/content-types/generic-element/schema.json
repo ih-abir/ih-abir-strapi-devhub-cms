@@ -4,7 +4,8 @@
   "info": {
     "singularName": "generic-element",
     "pluralName": "generic-elements",
-    "displayName": "Generic Element"
+    "displayName": "Generic elements",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,75 +13,80 @@
   "pluginOptions": {},
   "attributes": {
     "OpenGraph_default": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
-    },
-    "Footer_image": {
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
-    },
-    "Footer_image_sm": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "Footer_copyright": {
       "type": "text",
       "required": true
     },
-    "Instagram_accountname": {
-      "type": "string",
-      "required": false
-    },
-    "Instagram_link": {
-      "type": "string"
-    },
     "Nav_menu": {
-      "displayName": "Navigation",
       "type": "component",
       "repeatable": true,
-      "component": "menu.navigation",
-      "required": true
+      "component": "shared.menu",
+      "required": true,
+      "max": 5
     },
     "Footer_menu": {
       "type": "component",
       "repeatable": true,
-      "component": "menu.navigation",
+      "component": "shared.menu",
       "required": true
     },
-    "About_intro_title": {
-      "type": "string",
-      "required": true
-    },
-    "About_intro_text": {
-      "type": "richtext",
-      "required": true
-    },
-    "About_intro_blob": {
-      "allowedTypes": [
-        "images"
-      ],
+    "Footer_image": {
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "About_intro_button_text": {
-      "type": "string",
-      "required": false
+    "Footer_image_sm": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "About_intro_button_link": {
+    "Nav_social_media_links": {
+      "displayName": "Social-media-links",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-media-links"
+    },
+    "Footer_social_media_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-media-links"
+    },
+    "Company_name": {
       "type": "string"
+    },
+    "Company_telephone": {
+      "type": "string"
+    },
+    "Company_email": {
+      "type": "string"
+    },
+    "ethicsPolicy_link": {
+      "type": "string"
+    },
+    "termsOfService_link": {
+      "type": "string"
+    },
+    "privacyPolicy_link": {
+      "type": "string"
+    },
+    "Project_owns": {
+      "displayName": "Owns",
+      "type": "component",
+      "repeatable": true,
+      "component": "schema.owns"
     }
   }
 }

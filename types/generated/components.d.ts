@@ -1,127 +1,100 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SearchEngineMeta extends Schema.Component {
-  collectionName: 'components_search_engine_metas';
+export interface SchemaOwns extends Struct.ComponentSchema {
+  collectionName: 'components_schema_owns';
   info: {
-    displayName: 'Meta';
-    icon: 'server';
+    displayName: 'Owns';
   };
   attributes: {
-    HTML_Title: Attribute.String;
-    Meta_description: Attribute.String;
-    noindex: Attribute.Boolean;
-    nofollow: Attribute.Boolean;
-    URL_slug: Attribute.String;
-    Canonical_link: Attribute.String;
+    Description: Schema.Attribute.Text;
+    Name: Schema.Attribute.String;
+    Url: Schema.Attribute.String;
   };
 }
 
-export interface SchemaType extends Schema.Component {
-  collectionName: 'components_schema_types';
+export interface SharedLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
   info: {
-    displayName: 'Type';
+    description: '';
+    displayName: 'Links';
   };
   attributes: {
-    LocalBusiness: Attribute.Boolean;
-    Landform: Attribute.Boolean;
-    Accommodation: Attribute.Boolean;
-    Restaurant: Attribute.Boolean;
-    TouristAttraction: Attribute.Boolean;
+    Url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SchemaQa extends Schema.Component {
-  collectionName: 'components_schema_qas';
+export interface SharedMenu extends Struct.ComponentSchema {
+  collectionName: 'components_shared_menus';
+  info: {
+    displayName: 'Menu';
+  };
+  attributes: {
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Url: Schema.Attribute.String;
+  };
+}
+
+export interface SharedQa extends Struct.ComponentSchema {
+  collectionName: 'components_shared_qas';
   info: {
     displayName: 'QA';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Blob: Schema.Attribute.Media<'images'>;
+    Question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
     description: '';
+    displayName: 'Seo';
+    icon: 'allergies';
+    name: 'Seo';
   };
   attributes: {
-    Question: Attribute.String & Attribute.Required;
-    Answer: Attribute.RichText & Attribute.Required;
-    Blob: Attribute.Media<'images'>;
+    Canonical_link: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+        minLength: 70;
+      }>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+        minLength: 30;
+      }>;
+    nofollow: Schema.Attribute.Boolean;
+    noindex: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    URL_slug: Schema.Attribute.String;
   };
 }
 
-export interface SchemaCuisine extends Schema.Component {
-  collectionName: 'components_schema_cuisines';
+export interface SharedSocialMediaLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_social_media_links';
   info: {
-    displayName: 'Cuisine';
+    displayName: 'Social-media-links';
   };
   attributes: {
-    Variant_name: Attribute.Enumeration<['Asian']>;
+    Icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface ScheduleDeparture extends Schema.Component {
-  collectionName: 'components_schedule_departures';
-  info: {
-    displayName: 'Departure';
-    icon: 'layout';
-  };
-  attributes: {
-    Starting_point_name: Attribute.String & Attribute.Required;
-    Ending_point_name: Attribute.String & Attribute.Required;
-    Starting_point_google_place_id: Attribute.String & Attribute.Required;
-    Ending_point_google_place_id: Attribute.String & Attribute.Required;
-    IDR_price_one_way_adult: Attribute.BigInteger & Attribute.Required;
-    IDR_price_return_adult: Attribute.BigInteger & Attribute.Required;
-    IDR_price_one_way_child: Attribute.BigInteger;
-    IDR_price_return_child: Attribute.BigInteger;
-    Price_child_age_range: Attribute.String;
-    Time: Attribute.Component<'schedule.departure-time', true>;
-  };
-}
-
-export interface ScheduleDepartureTime extends Schema.Component {
-  collectionName: 'components_schedule_departure_times';
-  info: {
-    displayName: 'Departure-time';
-    icon: 'clock';
-  };
-  attributes: {
-    Departure_time: Attribute.Time;
-    Return_time: Attribute.Time;
-  };
-}
-
-export interface MenuNavigation extends Schema.Component {
-  collectionName: 'components_menu_navigations';
-  info: {
-    displayName: 'Navigation';
-    icon: 'bulletList';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Title_url: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface KindnessImpacts extends Schema.Component {
-  collectionName: 'components_kindness_impacts';
-  info: {
-    displayName: 'Impacts';
-    icon: 'bulletList';
-  };
-  attributes: {
-    Value: Attribute.String;
-    Value_unit: Attribute.String;
-    Description: Attribute.RichText;
-    Icon: Attribute.Media<'images'>;
-  };
-}
-
-declare module '@strapi/types' {
-  export module Shared {
-    export interface Components {
-      'search-engine.meta': SearchEngineMeta;
-      'schema.type': SchemaType;
-      'schema.qa': SchemaQa;
-      'schema.cuisine': SchemaCuisine;
-      'schedule.departure': ScheduleDeparture;
-      'schedule.departure-time': ScheduleDepartureTime;
-      'menu.navigation': MenuNavigation;
-      'kindness.impacts': KindnessImpacts;
+declare module '@strapi/strapi' {
+  export module Public {
+    export interface ComponentSchemas {
+      'schema.owns': SchemaOwns;
+      'shared.links': SharedLinks;
+      'shared.menu': SharedMenu;
+      'shared.qa': SharedQa;
+      'shared.seo': SharedSeo;
+      'shared.social-media-links': SharedSocialMediaLinks;
     }
   }
 }

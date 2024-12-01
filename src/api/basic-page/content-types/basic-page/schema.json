@@ -18,7 +18,7 @@
     },
     "Intro_text": {
       "type": "richtext",
-      "required": true
+      "required": false
     },
     "Intro_blob": {
       "type": "media",
@@ -36,24 +36,25 @@
         "images"
       ]
     },
-    "Images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "Block_title": {
       "type": "string"
     },
     "Block_text": {
       "type": "richtext"
     },
-    "Meta": {
+    "Seo": {
       "type": "component",
       "repeatable": false,
-      "component": "search-engine.meta"
+      "component": "shared.seo",
+      "required": true
+    },
+    "QA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.qa"
+    },
+    "Contact_form": {
+      "type": "boolean"
     }
   }
 }
