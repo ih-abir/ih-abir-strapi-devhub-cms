@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_social_media_links",
+  "info": {
+    "displayName": "Social-media-links"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "security_texts",
+  "info": {
+    "singularName": "security-text",
+    "pluralName": "security-texts",
+    "displayName": "Security text"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Text": {
+      "type": "richtext"
+    }
+  }
+}

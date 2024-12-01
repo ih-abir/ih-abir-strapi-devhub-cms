@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_qas",
+  "info": {
+    "displayName": "QA",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string",
+      "required": true
+    },
+    "Answer": {
+      "type": "richtext",
+      "required": true
+    },
+    "Blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

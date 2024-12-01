@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_schema_owns",
+  "info": {
+    "displayName": "Owns"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Url": {
+      "type": "string"
+    }
+  }
+}

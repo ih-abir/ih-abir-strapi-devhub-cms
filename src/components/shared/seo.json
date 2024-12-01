@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_seos",
+  "info": {
+    "name": "Seo",
+    "icon": "allergies",
+    "displayName": "Seo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "minLength": 30,
+      "maxLength": 60
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120,
+      "minLength": 70
+    },
+    "noindex": {
+      "type": "boolean",
+      "required": true
+    },
+    "nofollow": {
+      "type": "boolean"
+    },
+    "URL_slug": {
+      "type": "string"
+    },
+    "Canonical_link": {
+      "type": "string"
+    }
+  }
+}
