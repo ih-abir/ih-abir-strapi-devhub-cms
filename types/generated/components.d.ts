@@ -12,6 +12,24 @@ export interface SchemaOwns extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDeparture extends Struct.ComponentSchema {
+  collectionName: 'components_shared_departures';
+  info: {
+    displayName: 'Departure';
+  };
+  attributes: {
+    Ending_point_google_place_id: Schema.Attribute.String;
+    Ending_point_name: Schema.Attribute.String;
+    IDR_price_one_way_adult: Schema.Attribute.Decimal;
+    IDR_price_one_way_child: Schema.Attribute.BigInteger;
+    IDR_price_return_adult: Schema.Attribute.BigInteger;
+    IDR_price_return_child: Schema.Attribute.BigInteger;
+    Schedule: Schema.Attribute.Component<'shared.schedule', true>;
+    Starting_point_google_place_id: Schema.Attribute.String;
+    Starting_point_name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedLinks extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -44,6 +62,17 @@ export interface SharedQa extends Struct.ComponentSchema {
     Answer: Schema.Attribute.RichText & Schema.Attribute.Required;
     Blob: Schema.Attribute.Media<'images'>;
     Question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedSchedule extends Struct.ComponentSchema {
+  collectionName: 'components_shared_schedules';
+  info: {
+    displayName: 'Schedule';
+  };
+  attributes: {
+    Departure_time: Schema.Attribute.String & Schema.Attribute.Required;
+    Return_time: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -90,9 +119,11 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'schema.owns': SchemaOwns;
+      'shared.departure': SharedDeparture;
       'shared.links': SharedLinks;
       'shared.menu': SharedMenu;
       'shared.qa': SharedQa;
+      'shared.schedule': SharedSchedule;
       'shared.seo': SharedSeo;
       'shared.social-media-links': SharedSocialMediaLinks;
     }

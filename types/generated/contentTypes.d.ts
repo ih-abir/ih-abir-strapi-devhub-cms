@@ -369,6 +369,43 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAccommodationAccommodation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'accommodations';
+  info: {
+    description: '';
+    displayName: 'Accommodation';
+    pluralName: 'accommodations';
+    singularName: 'accommodation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Block_blob: Schema.Attribute.Media<'images'>;
+    Book_link: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.RichText;
+    google_place_id: Schema.Attribute.String;
+    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::accommodation.accommodation'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
   collectionName: 'basic_pages';
   info: {
@@ -407,6 +444,38 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBoatBoat extends Struct.CollectionTypeSchema {
+  collectionName: 'boats';
+  info: {
+    displayName: 'Boat';
+    pluralName: 'boats';
+    singularName: 'boat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Boat_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Book_link: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Departure: Schema.Attribute.Component<'shared.departure', true>;
+    Description: Schema.Attribute.RichText;
+    Homepage_link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::boat.boat'> &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Tripadvisor_link: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGenericElementGenericElement
   extends Struct.SingleTypeSchema {
   collectionName: 'generic_elements';
@@ -420,13 +489,14 @@ export interface ApiGenericElementGenericElement
     draftAndPublish: false;
   };
   attributes: {
-    Company_email: Schema.Attribute.String;
-    Company_name: Schema.Attribute.String;
-    Company_telephone: Schema.Attribute.String;
+    About_intro_blob: Schema.Attribute.Media<'images'>;
+    About_intro_button_link: Schema.Attribute.String;
+    About_intro_button_text: Schema.Attribute.String;
+    About_intro_text: Schema.Attribute.RichText;
+    About_intro_title: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ethicsPolicy_link: Schema.Attribute.String;
     Footer_copyright: Schema.Attribute.Text & Schema.Attribute.Required;
     Footer_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     Footer_image_sm: Schema.Attribute.Media<'images'>;
@@ -455,23 +525,51 @@ export interface ApiGenericElementGenericElement
       true
     >;
     OpenGraph_default: Schema.Attribute.Media<'images'>;
-    privacyPolicy_link: Schema.Attribute.String;
-    Project_owns: Schema.Attribute.Component<'schema.owns', true>;
     publishedAt: Schema.Attribute.DateTime;
-    termsOfService_link: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiHomeProjectHomeProject extends Struct.SingleTypeSchema {
-  collectionName: 'home_projects';
+export interface ApiGoogleMapsDataGoogleMapsData
+  extends Struct.SingleTypeSchema {
+  collectionName: 'google_maps_datas';
   info: {
     description: '';
-    displayName: 'Home project';
-    pluralName: 'home-projects';
-    singularName: 'home-project';
+    displayName: 'Google maps data';
+    pluralName: 'google-maps-datas';
+    singularName: 'google-maps-data';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::google-maps-data.google-maps-data'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomeAccommodationHomeAccommodation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_accommodations';
+  info: {
+    description: '';
+    displayName: 'Home accommodation';
+    pluralName: 'home-accommodations';
+    singularName: 'home-accommodation';
   };
   options: {
     draftAndPublish: true;
@@ -481,13 +579,11 @@ export interface ApiHomeProjectHomeProject extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    Intro_button_link: Schema.Attribute.String;
-    Intro_button_text: Schema.Attribute.String;
-    Intro_text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Intro_text: Schema.Attribute.RichText;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::home-project.home-project'
+      'api::home-accommodation.home-accommodation'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -500,12 +596,13 @@ export interface ApiHomeProjectHomeProject extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiHomeSolutionHomeSolution extends Struct.SingleTypeSchema {
-  collectionName: 'home_solutions';
+export interface ApiHomeBoatHomeBoat extends Struct.SingleTypeSchema {
+  collectionName: 'home_boats';
   info: {
-    displayName: 'Home solution';
-    pluralName: 'home-solutions';
-    singularName: 'home-solution';
+    description: '';
+    displayName: 'Home boat';
+    pluralName: 'home-boats';
+    singularName: 'home-boat';
   };
   options: {
     draftAndPublish: true;
@@ -515,13 +612,44 @@ export interface ApiHomeSolutionHomeSolution extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    Intro_button_link: Schema.Attribute.String;
-    Intro_button_text: Schema.Attribute.String;
-    Intro_text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Intro_text: Schema.Attribute.RichText;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::home-solution.home-solution'
+      'api::home-boat.home-boat'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomeTodoHomeTodo extends Struct.SingleTypeSchema {
+  collectionName: 'home_todos';
+  info: {
+    description: '';
+    displayName: 'Home todo';
+    pluralName: 'home-todos';
+    singularName: 'home-todo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Intro_text: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-todo.home-todo'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -552,18 +680,15 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     Block_solution1_button_text: Schema.Attribute.String;
     Block_solution2_button_text: Schema.Attribute.String;
     Block_solution3_button_text: Schema.Attribute.String;
-    Block_solutions: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::solution.solution'
-    >;
     Block_title: Schema.Attribute.String;
+    Block_todos: Schema.Attribute.Relation<'oneToMany', 'api::todo.todo'>;
+    Block2_accommodations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::accommodation.accommodation'
+    >;
     Block2_button_link: Schema.Attribute.String;
     Block2_button_text: Schema.Attribute.String;
     Block2_intro_text: Schema.Attribute.RichText;
-    Block2_projects: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::project.project'
-    >;
     Block2_title: Schema.Attribute.String;
     Block3_blob: Schema.Attribute.Media<'images'>;
     Block3_title: Schema.Attribute.String;
@@ -571,10 +696,6 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     Block4_button_link: Schema.Attribute.String;
     Block4_button_text: Schema.Attribute.String;
     Block4_intro_text: Schema.Attribute.RichText;
-    Block4_team_members: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::team-member.team-member'
-    >;
     Block4_title: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -594,71 +715,6 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       Schema.Attribute.Required;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     Title_tag: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiProjectProject extends Struct.CollectionTypeSchema {
-  collectionName: 'projects';
-  info: {
-    description: '';
-    displayName: 'Todo';
-    pluralName: 'projects';
-    singularName: 'project';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Block_blob: Schema.Attribute.Media<'images'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
-    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::project.project'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    QA: Schema.Attribute.Component<'shared.qa', true>;
-    Seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiReviewReview extends Struct.CollectionTypeSchema {
-  collectionName: 'reviews';
-  info: {
-    displayName: 'Review';
-    pluralName: 'reviews';
-    singularName: 'review';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Avatar: Schema.Attribute.Media<'images'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::review.review'
-    > &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    Text: Schema.Attribute.RichText;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -721,13 +777,13 @@ export interface ApiSecurityTextSecurityText extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
-  collectionName: 'solutions';
+export interface ApiTodoTodo extends Struct.CollectionTypeSchema {
+  collectionName: 'todos';
   info: {
     description: '';
-    displayName: 'Solution';
-    pluralName: 'solutions';
-    singularName: 'solution';
+    displayName: 'Todo';
+    pluralName: 'todos';
+    singularName: 'todo';
   };
   options: {
     draftAndPublish: true;
@@ -737,53 +793,16 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Description: Schema.Attribute.RichText;
+    google_place_id: Schema.Attribute.String;
     Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::solution.solution'
-    > &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::todo.todo'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    QA: Schema.Attribute.Component<'shared.qa', true>;
     Seo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.Required;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
-  collectionName: 'team_members';
-  info: {
-    description: '';
-    displayName: 'Team member';
-    pluralName: 'team-members';
-    singularName: 'team-member';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Email: Schema.Attribute.String;
-    Link: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::team-member.team-member'
-    > &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String & Schema.Attribute.Required;
-    Position: Schema.Attribute.String;
-    Profile_links: Schema.Attribute.Component<'shared.links', true>;
-    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1295,17 +1314,18 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::accommodation.accommodation': ApiAccommodationAccommodation;
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
+      'api::boat.boat': ApiBoatBoat;
       'api::generic-element.generic-element': ApiGenericElementGenericElement;
-      'api::home-project.home-project': ApiHomeProjectHomeProject;
-      'api::home-solution.home-solution': ApiHomeSolutionHomeSolution;
+      'api::google-maps-data.google-maps-data': ApiGoogleMapsDataGoogleMapsData;
+      'api::home-accommodation.home-accommodation': ApiHomeAccommodationHomeAccommodation;
+      'api::home-boat.home-boat': ApiHomeBoatHomeBoat;
+      'api::home-todo.home-todo': ApiHomeTodoHomeTodo;
       'api::homepage.homepage': ApiHomepageHomepage;
-      'api::project.project': ApiProjectProject;
-      'api::review.review': ApiReviewReview;
       'api::robots-text.robots-text': ApiRobotsTextRobotsText;
       'api::security-text.security-text': ApiSecurityTextSecurityText;
-      'api::solution.solution': ApiSolutionSolution;
-      'api::team-member.team-member': ApiTeamMemberTeamMember;
+      'api::todo.todo': ApiTodoTodo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

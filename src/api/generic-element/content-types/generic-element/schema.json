@@ -64,29 +64,24 @@
       "repeatable": true,
       "component": "shared.social-media-links"
     },
-    "Company_name": {
+    "About_intro_title": {
       "type": "string"
     },
-    "Company_telephone": {
+    "About_intro_text": {
+      "type": "richtext"
+    },
+    "About_intro_blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "About_intro_button_text": {
       "type": "string"
     },
-    "Company_email": {
+    "About_intro_button_link": {
       "type": "string"
-    },
-    "ethicsPolicy_link": {
-      "type": "string"
-    },
-    "termsOfService_link": {
-      "type": "string"
-    },
-    "privacyPolicy_link": {
-      "type": "string"
-    },
-    "Project_owns": {
-      "displayName": "Owns",
-      "type": "component",
-      "repeatable": true,
-      "component": "schema.owns"
     }
   }
 }
