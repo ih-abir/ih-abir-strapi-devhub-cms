@@ -530,6 +530,103 @@ export interface ApiGenericElementGenericElement
   };
 }
 
+export interface ApiHomeAccommodationHomeAccommodation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_accommodations';
+  info: {
+    displayName: 'Home accommodation';
+    pluralName: 'home-accommodations';
+    singularName: 'home-accommodation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Intro_text: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-accommodation.home-accommodation'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomeBoatHomeBoat extends Struct.SingleTypeSchema {
+  collectionName: 'home_boats';
+  info: {
+    displayName: 'Home boat';
+    pluralName: 'home-boats';
+    singularName: 'home-boat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Intro_text: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-boat.home-boat'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomeTodoHomeTodo extends Struct.SingleTypeSchema {
+  collectionName: 'home_todos';
+  info: {
+    displayName: 'Home todo';
+    pluralName: 'home-todos';
+    singularName: 'home-todo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Intro_text: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-todo.home-todo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
@@ -1185,6 +1282,9 @@ declare module '@strapi/strapi' {
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::boat.boat': ApiBoatBoat;
       'api::generic-element.generic-element': ApiGenericElementGenericElement;
+      'api::home-accommodation.home-accommodation': ApiHomeAccommodationHomeAccommodation;
+      'api::home-boat.home-boat': ApiHomeBoatHomeBoat;
+      'api::home-todo.home-todo': ApiHomeTodoHomeTodo;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::robots-text.robots-text': ApiRobotsTextRobotsText;
       'api::security-text.security-text': ApiSecurityTextSecurityText;

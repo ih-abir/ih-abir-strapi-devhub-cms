@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_todos",
+  "info": {
+    "singularName": "home-todo",
+    "pluralName": "home-todos",
+    "displayName": "Home todo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Intro_text": {
+      "type": "richtext"
+    },
+    "Intro_blob": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "required": true
+    }
+  }
+}
