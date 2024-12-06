@@ -744,6 +744,7 @@ export interface ApiSecurityTextSecurityText extends Struct.SingleTypeSchema {
 export interface ApiTodoTodo extends Struct.CollectionTypeSchema {
   collectionName: 'todos';
   info: {
+    description: '';
     displayName: 'Todo';
     pluralName: 'todos';
     singularName: 'todo';
@@ -752,7 +753,7 @@ export interface ApiTodoTodo extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Block_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Block_blob: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
