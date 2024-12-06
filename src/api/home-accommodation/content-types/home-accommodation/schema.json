@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-accommodation",
     "pluralName": "home-accommodations",
-    "displayName": "Home accommodation"
+    "displayName": "Home accommodation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,12 +20,12 @@
       "type": "richtext"
     },
     "Intro_blob": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Seo": {
       "type": "component",

@@ -47,14 +47,6 @@
       "repeatable": false,
       "component": "shared.seo",
       "required": true
-    },
-    "QA": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.qa"
-    },
-    "Contact_form": {
-      "type": "boolean"
     }
   }
 }

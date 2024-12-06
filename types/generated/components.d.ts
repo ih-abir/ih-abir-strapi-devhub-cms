@@ -103,7 +103,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
         minLength: 30;
       }>;
     nofollow: Schema.Attribute.Boolean;
-    noindex: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    noindex: Schema.Attribute.Boolean;
     URL_slug: Schema.Attribute.String;
   };
 }

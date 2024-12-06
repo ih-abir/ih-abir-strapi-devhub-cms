@@ -419,7 +419,6 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
     Block_blob: Schema.Attribute.Media<'images'>;
     Block_text: Schema.Attribute.RichText;
     Block_title: Schema.Attribute.String;
-    Contact_form: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -432,7 +431,6 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    QA: Schema.Attribute.Component<'shared.qa', true>;
     Seo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.Required;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -534,6 +532,7 @@ export interface ApiHomeAccommodationHomeAccommodation
   extends Struct.SingleTypeSchema {
   collectionName: 'home_accommodations';
   info: {
+    description: '';
     displayName: 'Home accommodation';
     pluralName: 'home-accommodations';
     singularName: 'home-accommodation';

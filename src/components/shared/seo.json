@@ -22,7 +22,7 @@
     },
     "noindex": {
       "type": "boolean",
-      "required": true
+      "required": false
     },
     "nofollow": {
       "type": "boolean"
