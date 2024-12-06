@@ -4,7 +4,8 @@
   "info": {
     "singularName": "todo",
     "pluralName": "todos",
-    "displayName": "Todo"
+    "displayName": "Todo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,20 +20,20 @@
       "type": "richtext"
     },
     "Intro_blob": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Block_blob": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "google_place_id": {
       "type": "string"
