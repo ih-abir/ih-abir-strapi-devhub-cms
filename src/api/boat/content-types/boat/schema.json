@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "boats",
+  "info": {
+    "singularName": "boat",
+    "pluralName": "boats",
+    "displayName": "Boat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Boat_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Tripadvisor_link": {
+      "type": "string"
+    },
+    "Homepage_link": {
+      "type": "string"
+    },
+    "Book_link": {
+      "type": "string"
+    },
+    "Departure": {
+      "displayName": "Departure",
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule.departure"
+    }
+  }
+}

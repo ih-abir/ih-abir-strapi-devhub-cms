@@ -373,7 +373,6 @@ export interface ApiAccommodationAccommodation
   extends Struct.CollectionTypeSchema {
   collectionName: 'accommodations';
   info: {
-    description: '';
     displayName: 'Accommodation';
     pluralName: 'accommodations';
     singularName: 'accommodation';
@@ -383,7 +382,6 @@ export interface ApiAccommodationAccommodation
   };
   attributes: {
     Block_blob: Schema.Attribute.Media<'images'>;
-    Book_link: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -399,7 +397,7 @@ export interface ApiAccommodationAccommodation
     publishedAt: Schema.Attribute.DateTime;
     Seo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -460,7 +458,7 @@ export interface ApiBoatBoat extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Departure: Schema.Attribute.Component<'shared.departure', true>;
+    Departure: Schema.Attribute.Component<'schedule.departure', true>;
     Description: Schema.Attribute.RichText;
     Homepage_link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -526,136 +524,6 @@ export interface ApiGenericElementGenericElement
     >;
     OpenGraph_default: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiGoogleMapsDataGoogleMapsData
-  extends Struct.SingleTypeSchema {
-  collectionName: 'google_maps_datas';
-  info: {
-    description: '';
-    displayName: 'Google maps data';
-    pluralName: 'google-maps-datas';
-    singularName: 'google-maps-data';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    data: Schema.Attribute.Text & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::google-maps-data.google-maps-data'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHomeAccommodationHomeAccommodation
-  extends Struct.SingleTypeSchema {
-  collectionName: 'home_accommodations';
-  info: {
-    description: '';
-    displayName: 'Home accommodation';
-    pluralName: 'home-accommodations';
-    singularName: 'home-accommodation';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    Intro_text: Schema.Attribute.RichText;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::home-accommodation.home-accommodation'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHomeBoatHomeBoat extends Struct.SingleTypeSchema {
-  collectionName: 'home_boats';
-  info: {
-    description: '';
-    displayName: 'Home boat';
-    pluralName: 'home-boats';
-    singularName: 'home-boat';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    Intro_text: Schema.Attribute.RichText;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::home-boat.home-boat'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHomeTodoHomeTodo extends Struct.SingleTypeSchema {
-  collectionName: 'home_todos';
-  info: {
-    description: '';
-    displayName: 'Home todo';
-    pluralName: 'home-todos';
-    singularName: 'home-todo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    Intro_text: Schema.Attribute.RichText;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::home-todo.home-todo'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -780,7 +648,6 @@ export interface ApiSecurityTextSecurityText extends Struct.SingleTypeSchema {
 export interface ApiTodoTodo extends Struct.CollectionTypeSchema {
   collectionName: 'todos';
   info: {
-    description: '';
     displayName: 'Todo';
     pluralName: 'todos';
     singularName: 'todo';
@@ -789,7 +656,7 @@ export interface ApiTodoTodo extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Block_blob: Schema.Attribute.Media<'images'>;
+    Block_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1318,10 +1185,6 @@ declare module '@strapi/strapi' {
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::boat.boat': ApiBoatBoat;
       'api::generic-element.generic-element': ApiGenericElementGenericElement;
-      'api::google-maps-data.google-maps-data': ApiGoogleMapsDataGoogleMapsData;
-      'api::home-accommodation.home-accommodation': ApiHomeAccommodationHomeAccommodation;
-      'api::home-boat.home-boat': ApiHomeBoatHomeBoat;
-      'api::home-todo.home-todo': ApiHomeTodoHomeTodo;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::robots-text.robots-text': ApiRobotsTextRobotsText;
       'api::security-text.security-text': ApiSecurityTextSecurityText;
