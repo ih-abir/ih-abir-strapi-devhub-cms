@@ -373,6 +373,7 @@ export interface ApiAccommodationAccommodation
   extends Struct.CollectionTypeSchema {
   collectionName: 'accommodations';
   info: {
+    description: '';
     displayName: 'Accommodation';
     pluralName: 'accommodations';
     singularName: 'accommodation';
@@ -382,6 +383,7 @@ export interface ApiAccommodationAccommodation
   };
   attributes: {
     Block_blob: Schema.Attribute.Media<'images'>;
+    Book_link: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
