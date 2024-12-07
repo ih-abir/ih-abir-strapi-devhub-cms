@@ -445,6 +445,7 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
 export interface ApiBoatBoat extends Struct.CollectionTypeSchema {
   collectionName: 'boats';
   info: {
+    description: '';
     displayName: 'Boat';
     pluralName: 'boats';
     singularName: 'boat';

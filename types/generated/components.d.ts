@@ -25,11 +25,12 @@ export interface ScheduleDeparture extends Struct.ComponentSchema {
 export interface ScheduleDepartureSchedule extends Struct.ComponentSchema {
   collectionName: 'components_schedule_departure_schedules';
   info: {
+    description: '';
     displayName: 'Departure_schedule';
   };
   attributes: {
-    Departure_time: Schema.Attribute.String;
-    Return_time: Schema.Attribute.String;
+    Departure_time: Schema.Attribute.Time;
+    Return_time: Schema.Attribute.Time;
   };
 }
 

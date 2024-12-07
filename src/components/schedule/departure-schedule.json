@@ -1,15 +1,16 @@
 {
   "collectionName": "components_schedule_departure_schedules",
   "info": {
-    "displayName": "Departure_schedule"
+    "displayName": "Departure_schedule",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Departure_time": {
-      "type": "string"
+      "type": "time"
     },
     "Return_time": {
-      "type": "string"
+      "type": "time"
     }
   }
 }

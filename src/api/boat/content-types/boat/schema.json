@@ -4,7 +4,8 @@
   "info": {
     "singularName": "boat",
     "pluralName": "boats",
-    "displayName": "Boat"
+    "displayName": "Boat",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,20 +20,20 @@
       "type": "richtext"
     },
     "Logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Boat_image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Tripadvisor_link": {
       "type": "string"
