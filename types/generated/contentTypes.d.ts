@@ -644,10 +644,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     Block_button_link: Schema.Attribute.String;
     Block_button_text: Schema.Attribute.String;
     Block_intro_text: Schema.Attribute.RichText;
-    Block_solution1_button_text: Schema.Attribute.String;
-    Block_solution2_button_text: Schema.Attribute.String;
-    Block_solution3_button_text: Schema.Attribute.String;
     Block_title: Schema.Attribute.String;
+    Block_todo1_button_text: Schema.Attribute.String;
+    Block_todo2_button_text: Schema.Attribute.String;
+    Block_todo3_button_text: Schema.Attribute.String;
     Block_todos: Schema.Attribute.Relation<'oneToMany', 'api::todo.todo'>;
     Block2_accommodations: Schema.Attribute.Relation<
       'oneToMany',
