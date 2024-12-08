@@ -668,6 +668,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Intro_blob: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Intro_blob_place_text: Schema.Attribute.String;
     Intro_button_link: Schema.Attribute.String;
     Intro_button_text: Schema.Attribute.String;
     Intro_text: Schema.Attribute.RichText & Schema.Attribute.Required;

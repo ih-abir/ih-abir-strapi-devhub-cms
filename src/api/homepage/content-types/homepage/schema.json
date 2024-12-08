@@ -111,6 +111,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::accommodation.accommodation"
+    },
+    "Intro_blob_place_text": {
+      "type": "string"
     }
   }
 }
