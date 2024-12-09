@@ -535,6 +535,7 @@ export interface ApiGoogleMapsDataGoogleMapsData
   extends Struct.SingleTypeSchema {
   collectionName: 'google_maps_datas';
   info: {
+    description: '';
     displayName: 'Google maps data';
     pluralName: 'google-maps-datas';
     singularName: 'google-maps-data';
@@ -546,7 +547,7 @@ export interface ApiGoogleMapsDataGoogleMapsData
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    data: Schema.Attribute.Text;
+    data: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

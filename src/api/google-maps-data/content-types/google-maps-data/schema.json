@@ -4,7 +4,8 @@
   "info": {
     "singularName": "google-maps-data",
     "pluralName": "google-maps-datas",
-    "displayName": "Google maps data"
+    "displayName": "Google maps data",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "data": {
-      "type": "text"
+      "type": "json"
     }
   }
 }
