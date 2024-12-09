@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "google_maps_datas",
+  "info": {
+    "singularName": "google-maps-data",
+    "pluralName": "google-maps-datas",
+    "displayName": "Google maps data"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "text"
+    }
+  }
+}

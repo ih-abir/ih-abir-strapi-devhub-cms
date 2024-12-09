@@ -531,6 +531,35 @@ export interface ApiGenericElementGenericElement
   };
 }
 
+export interface ApiGoogleMapsDataGoogleMapsData
+  extends Struct.SingleTypeSchema {
+  collectionName: 'google_maps_datas';
+  info: {
+    displayName: 'Google maps data';
+    pluralName: 'google-maps-datas';
+    singularName: 'google-maps-data';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::google-maps-data.google-maps-data'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeAccommodationHomeAccommodation
   extends Struct.SingleTypeSchema {
   collectionName: 'home_accommodations';
@@ -1286,6 +1315,7 @@ declare module '@strapi/strapi' {
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::boat.boat': ApiBoatBoat;
       'api::generic-element.generic-element': ApiGenericElementGenericElement;
+      'api::google-maps-data.google-maps-data': ApiGoogleMapsDataGoogleMapsData;
       'api::home-accommodation.home-accommodation': ApiHomeAccommodationHomeAccommodation;
       'api::home-boat.home-boat': ApiHomeBoatHomeBoat;
       'api::home-todo.home-todo': ApiHomeTodoHomeTodo;
